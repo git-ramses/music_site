@@ -1,0 +1,13 @@
+.edit
+  = link_to 'Edit', edit_user_path(@user)
+
+.user-details
+  .user-image
+  h4 User
+  p= @user.username
+  h4 Bio
+  p= @user.bio
+  h4 Location
+  p= @user.location
+  h4 Genre
+  p= @user.genre
