@@ -1,0 +1,35 @@
+doctype html
+html
+  head
+    title 'MusicSite'
+    meta name='viewport' content='width=device-width,initial-scale=1'
+    = csrf_meta_tags
+    = csp_meta_tag
+
+    = stylesheet_link_tag 'application', 'data-turbo-track': 'reload'
+    = javascript_importmap_tags
+
+  body
+    / .img
+    .main-page
+      / .left-panel
+      .navbar
+        .site-title
+          h3 Music Site
+        ul
+          li= link_to 'Home', root_path
+          li= link_to 'Music', '#'
+          li= link_to 'Blog', '#'
+          li= link_to 'Profile', user_path(User.first)
+
+      .alerts
+        - flash.each do |type, msg|
+          div class="alert alert-#{type}"
+            = msg
+
+      .container
+        / .img
+        .page-title
+          h2= @page_title
+        .page-body
+          = yield
